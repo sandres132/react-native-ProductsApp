@@ -1,4 +1,4 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, StackCardStyleInterpolator } from '@react-navigation/stack';
 
 import { LoadingScreen,
     HomeScreen,
@@ -17,22 +17,45 @@ export type RootStackParams ={
 const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
+
+    const fadeAnimation: StackCardStyleInterpolator = ({ current }) => {
+        return {
+            cardStyle: {
+                opacity: current.progress,
+            }
+        }
+    }
+
     return (
         <Stack.Navigator
-            initialRouteName='LoadingScreen'
+            initialRouteName='LoginScreen'
             screenOptions={{
 
                 headerShown: false,
-                cardStyle: {
-                    backgroundColor: 'white',
-                }
+                cardStyleInterpolator: fadeAnimation,
             }}
         >
-            <Stack.Screen name='LoadingScreen' component={LoadingScreen} />
-            <Stack.Screen name='HomeScreen' component={HomeScreen} />
+            <Stack.Screen
+                options={{ cardStyleInterpolator: fadeAnimation }}
+                name='LoadingScreen'
+                component={LoadingScreen}
+            />
+            <Stack.Screen
+                options={{ cardStyleInterpolator: fadeAnimation }}
+                name='HomeScreen'
+                component={HomeScreen}
+            />
+            <Stack.Screen
+                options={{ cardStyleInterpolator: fadeAnimation }}
+                name='LoginScreen'
+                component={LoginScreen}
+            />
+            <Stack.Screen
+                options={{ cardStyleInterpolator: fadeAnimation }}
+                name='RegisterScreen'
+                component={RegisterScreen}
+            />
             <Stack.Screen name='ProductScreen' component={ProductScreen} />
-            <Stack.Screen name='LoginScreen' component={LoginScreen} />
-            <Stack.Screen name='RegisterScreen' component={RegisterScreen} />
         </Stack.Navigator>
     )
 

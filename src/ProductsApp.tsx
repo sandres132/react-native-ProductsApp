@@ -1,7 +1,7 @@
 import '../gesture-handler.native';
 
 import { useColorScheme } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { StackNavigator } from './presentation/routers/StackNavigator';
 
 import * as eva from '@eva-design/eva';
@@ -12,6 +12,9 @@ export const ProductsApp = () => {
 
     const colorScheme = useColorScheme();
     const theme = colorScheme === 'dark' ? eva.dark : eva.light;
+    const backgroundColor = ( colorScheme === 'dark' )
+        ? theme['color-basic-800']
+        : theme['color-basic-100']
 
     return (
         <>
@@ -20,7 +23,19 @@ export const ProductsApp = () => {
                 { ...eva }
                 theme={ theme }
             >
-                <NavigationContainer>
+                <NavigationContainer theme={{
+                    dark: colorScheme === 'dark',
+                    fonts: DefaultTheme.fonts,
+                    colors: {
+                        primary: theme['color-primary-500'],
+                        background: backgroundColor,
+                        card: theme['color-basic-100'],
+                        text: theme['text-basic-color'],
+                        border: theme['color-basic-800'],
+                        notification: theme['color-primary-500'],
+                    },
+
+                }}>
                     <StackNavigator/>
                 </NavigationContainer>
             </ApplicationProvider>

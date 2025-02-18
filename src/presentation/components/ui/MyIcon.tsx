@@ -1,0 +1,25 @@
+import { Icon, useTheme } from '@ui-kitten/components';
+import { View, Text, StyleSheet } from 'react-native';
+
+interface Props {
+    name: string;
+    color?: string;
+    white?: boolean;
+    width?: number;
+    height?: number;
+}
+
+export const MyIcon = ({ name, color, white= false, width = 32, height = 32 }:Props) => {
+
+    const theme = useTheme();
+
+    if ( white ) {
+        color = theme['color-info-100'];
+    } else if ( !color ) {
+        color = theme['text-basic-color'];
+    } else {
+        color = theme[ color ] ?? theme['text-basic-color'];
+    }
+
+    return <Icon style={{ width: width, height: height}} fill={ color } name={ name } />;
+}
