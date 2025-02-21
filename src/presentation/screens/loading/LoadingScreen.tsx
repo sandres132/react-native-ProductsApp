@@ -1,4 +1,4 @@
-import { Button, Icon, Layout, Spinner, Text } from '@ui-kitten/components';
+import { Layout, Spinner } from '@ui-kitten/components';
 
 export const LoadingScreen = () => {
     return (

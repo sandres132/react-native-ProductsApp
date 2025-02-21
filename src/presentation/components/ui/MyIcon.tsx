@@ -1,5 +1,4 @@
 import { Icon, useTheme } from '@ui-kitten/components';
-import { View, Text, StyleSheet } from 'react-native';
 
 interface Props {
     name: string;

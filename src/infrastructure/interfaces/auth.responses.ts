@@ -7,9 +7,3 @@ export interface AuthResponse {
     roles:    string[];
     token:    string;
 }
-
-export interface BadResponse {
-    statusCode: number;
-    message:    string[];
-    error:      string;
-}

@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 
 import { RootStackParams } from '../routers/StackNavigator'
-import { useAuthStore } from '../screens/store/auth/useAuthStore';
+import { useAuthStore } from '../store/auth/useAuthStore';
 
 export const AuthProvider = ({ children }: PropsWithChildren ) => {
 

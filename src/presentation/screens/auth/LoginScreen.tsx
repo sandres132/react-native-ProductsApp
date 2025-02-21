@@ -5,7 +5,7 @@ import { MyIcon } from '../../components/ui/MyIcon';
 import { useState } from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParams } from '../../routers/StackNavigator';
-import { useAuthStore } from '../store/auth/useAuthStore';
+import { useAuthStore } from '../../store/auth/useAuthStore';
 
 interface Props extends StackScreenProps<RootStackParams, 'LoginScreen'>{}
 
